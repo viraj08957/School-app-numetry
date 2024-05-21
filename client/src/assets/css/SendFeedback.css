@@ -1,0 +1,15 @@
+/* SendFeedback.css */
+
+.feedback-nav .nav-link {
+    color: black;
+  }
+  
+  .feedback-nav .nav-link.active {
+    color: orange;
+    font-weight: bold; /* Optional: Make the active tab bold */
+  }
+  
+  .feedback-nav .nav-link:hover {
+    background-color: #f8f9fa; /* Optional: Add a subtle hover effect */
+  }
+  

@@ -1,0 +1,23 @@
+.view-materials-container {
+    padding: 20px;
+  }
+  
+  .material-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .material-info {
+    flex: 1;
+  }
+  
+  .material-actions {
+    display: flex;
+    gap: 10px;
+  }
+  
