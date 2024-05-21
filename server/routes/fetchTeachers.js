@@ -1,4 +1,4 @@
-// server/routes/teachers.js
+
 const express = require('express');
 const router = express.Router();
 const { Teacher } = require('../models/userModel');

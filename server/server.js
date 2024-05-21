@@ -1,4 +1,3 @@
-//server.js
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
@@ -9,10 +8,10 @@ const path = require("path");
 const bodyParser = require("body-parser");
 
 const upload = multer();
-// Import models and routes
-const { User, Student, Parent, Teacher } = require("./models/userModel"); // Adjust the path as needed
+
+const { User, Student, Parent, Teacher } = require("./models/userModel");
 const { Appointment } = require("./models/appointmentModel");
-const userRoutes = require("./routes/userRoutes"); // Adjust the path as needed
+const userRoutes = require("./routes/userRoutes");
 
 // profiles
 const teacherProfileRoutes = require("./routes/teacherProfileRoutes");
@@ -22,7 +21,7 @@ const fileUpload = require("./public/uploads/fileUpload");
 
 //appointment
 const studentRoutes = require("./routes/student");
-const appointmentRoutes = require("./routes/appointmentRoute"); // Add this line for appointment routes
+const appointmentRoutes = require("./routes/appointmentRoute");
 
 //notification
 const notificationRoutes = require("./routes/notificationRoute");
@@ -50,10 +49,8 @@ app.use(express.json());
 app.use(bodyParser.json());
 app.use(express.static("public"));
 
-// Add this middleware to serve static image files from the 'public/uploads' directory
 app.use("/profile", express.static("public/uploads"));
 
-//materails
 const absolutePath = path.join(
   __dirname,
   "public",
@@ -62,7 +59,6 @@ const absolutePath = path.join(
 );
 app.use("/materials", express.static(absolutePath));
 
-//schedule
 const absolutePath1 = path.join(
   __dirname,
   "public",
@@ -71,10 +67,13 @@ const absolutePath1 = path.join(
 );
 app.use("/schedule", express.static(absolutePath1));
 
-mongoose.connect("mongodb://0.0.0.0:27017/task22", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+mongoose.connect(
+  "mongodb+srv://virajraut089:Jaishreeram089@cluster0.4m0lfvi.mongodb.net/",
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  }
+);
 
 const db = mongoose.connection;
 

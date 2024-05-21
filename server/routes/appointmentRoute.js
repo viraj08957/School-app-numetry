@@ -43,10 +43,8 @@ router.post('/set-appointment', async (req, res) => {
 
 
 
-// ...
 
-// Route to fetch appointments based on criteria
-// Route to fetch appointments based on criteria
+
 router.get('/check-appointments', async (req, res) => {
   try {
     const { firstName, lastName } = req.query;
