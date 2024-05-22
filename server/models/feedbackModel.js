@@ -1,4 +1,4 @@
-
+// feedbackModel.js
 const mongoose = require('mongoose');
 
 const feedbackSchema = new mongoose.Schema({
@@ -9,10 +9,10 @@ const feedbackSchema = new mongoose.Schema({
 
 const Feedback = mongoose.model('Feedback', feedbackSchema);
 
+/////////////////////////////////////////////////////
 
 
-
-
+// Create a discriminator for student feedback
 const StudentFeedback = Feedback.discriminator(
   'StudentFeedback',
   new mongoose.Schema({
@@ -21,10 +21,10 @@ const StudentFeedback = Feedback.discriminator(
   })
 );
 
+/////////////////////////////////////////////////////////
 
 
-
-
+//  Create a discriminator for parent feedback
 
 const ParentFeedback = Feedback.discriminator(
   'ParentFeedback',

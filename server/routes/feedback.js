@@ -1,11 +1,11 @@
-
+// routes/feedback.js
 const express = require('express');
 const router = express.Router();
 const { StudentFeedback , ParentFeedback, Feedback} = require('../models/feedbackModel');
 
 
 
-
+////////////////Student Feedback/////////////////
 
 
 // Endpoint to submit feedback from a student
@@ -37,6 +37,7 @@ router.post('/submit/student', async (req, res) => {
 });
 
 
+//////////////////Parent feedback ////////////////////////////
 
 
 
@@ -69,17 +70,18 @@ router.post('/submit/parent', async (req, res) => {
 
 
 
-
+////////////////////////////teacher fetching feedback ///////////////////////
 
 
 router.get('/teacher/:teacherId', async (req, res) => {
   try {
     const teacherId = req.params.teacherId;
 
-  
+    // Fetch feedback for the specified teacher from the database
     const feedback = await Feedback.find({ teacher: teacherId })
-      .select('timestamp userType message') 
-      .populate('teacher', 'firstName lastName'); 
+      .select('timestamp userType message') // Select only the fields you want to send to the frontend
+      .populate('teacher', 'firstName lastName'); // If you want to include teacher details, adjust accordingly
+
     res.json(feedback);
   } catch (error) {
     console.error('Error fetching feedback:', error);

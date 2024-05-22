@@ -1,4 +1,4 @@
-
+// parentProfileRoutes.js
 const express = require('express');
 const router = express.Router();
 const multer = require('multer');
@@ -15,8 +15,8 @@ router.get('/parent/:parentId', async (req, res) => {
     try {
       const parentId = req.params.parentId;
   
-
-      const parent = await Parent.findOne({ _id: parentId })
+      // Fetch teacher data from both User and Teacher models using discriminator key
+      const parent = await Parent.findOne({ _id: parentId }) // Use the Student model directly
             .populate({
                 path: '_id',
                 model: 'User',
@@ -30,7 +30,7 @@ router.get('/parent/:parentId', async (req, res) => {
       console.log('Fetched Parent Data:', parent.toObject());
 
   
-      res.json(parent.toObject()); 
+      res.json(parent.toObject()); // Convert to plain JavaScript object for better serialization
     } catch (error) {
       console.error(error);
       res.status(500).json({ message: 'Internal Server Error' });

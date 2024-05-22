@@ -1,4 +1,4 @@
-
+// student.js
 const express = require('express');
 const router = express.Router();
 const { User, Student } = require('../models/userModel'); // Adjust the path as needed
